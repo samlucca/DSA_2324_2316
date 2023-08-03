@@ -12,7 +12,7 @@ while(num==0){
 	scanf("%d", &choice);
 	
 	switch (choice){
-		case 1:printf(" Insertion sort\n");
+		case 1:printf(" Insertion sort\n..");
 				break;
 		case 2:printf(" Bubble sort\n");
 				break;
