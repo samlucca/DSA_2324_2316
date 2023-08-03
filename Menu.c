@@ -25,7 +25,7 @@ while(num==0){
 		default:printf(" Enter valid choice\n");
 		}
 	}
-	printf(" exited the menu");
+	printf(" exited the menu.");
 	return 0;
 	
 }
