@@ -1,4 +1,4 @@
-#inlcude "Stack.h"
+#inlcude "stack.h"
 
 //Initialise the stack
 void is_empty(Stack* stack){
