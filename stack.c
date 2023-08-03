@@ -1,6 +1,6 @@
 #include "stack.h"
 //push an item onto a stack
-void push (stack*stack){
+void push (Stack*stack){
     if (!is full(stack)){
         stack->top++;
         stack->data[stack->top]=item;
@@ -9,7 +9,7 @@ void push (stack*stack){
     }
 }
 //pop an item into a stack
-void pop (stack*stack){
+void pop (Stack*stack){
     if(!is empty(stack)){
         int item=stack->data[stack->top];
         stack->top--;
