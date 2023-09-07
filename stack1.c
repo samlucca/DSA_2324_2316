@@ -1,12 +1,12 @@
-#inlcude "stack.h"
+#include "stack.h"
 
 //Initialise the stack
-void is_empty(Stack* stack){
+void init(Stack* stack){
 	stack->top=-1;
 }
 
 //check if the stack is empty
-int is_full(Stack* stack){
+int is_empty(Stack* stack){
 	return stack->top == -1;
 }
 
