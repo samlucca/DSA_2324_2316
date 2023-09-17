@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include "utils.h"
 #include "stack.h"
+#include "INFIXPOSTFIX.h"
 
 int main(){
 	int choice;
 int num = 0;
 
 while(num==0){
-	printf(" 1. Insertion Sort \n 2. Bubble sort \n 3. Selection sort \n4. Addition");
-	printf(" Enter your choice");
+	printf("1. Insertion Sort \n 2. Bubble sort \n 3. Selection sort \n4. Addition \n5.INFIX to POSTFIX & Evaluation \n0.EXIT");
+	printf("\nEnter your choice\n");
 	scanf("%d", &choice);
 	
 	switch (choice){
@@ -20,12 +21,25 @@ while(num==0){
 				break;
 		case 4:printf(" Addition of 5 and 9 = %d\n",add(5,9));
 				break;
+		case 5:printf("Postfix Evaluation\n Enter the Infix expression:\n");
+				char infix[100],postfix[100];
+				scanf("%s", infix);
+
+				infixToPostfix(infix,postfix);
+				printf("\nYour expression is:%s",infix);
+
+				printf("\nPostfix expression is:%s",postfix);
+
+				printf("\nAnswer=%d\n",postfixEvaluation(postfix));
+				
+				break;
 		case 0:num=1;
 				break;
-		default:printf(" Enter valid choice\n");
+		
+		default:printf("\nEnter valid choice\n");
 		}
 	}
-	printf(" exited the menu.");
+	printf("Exited the menu.");
 	return 0;
 	
 }
