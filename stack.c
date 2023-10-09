@@ -19,6 +19,26 @@ int pop (Stack* stack){
         return -1;
     }
 }
+//returns top element
 int peek(Stack* stack){
+    if(!is_empty(stack)){
 	return stack->data[stack->top];
+    }
+    else{
+        return -1;
+    }
+}
+//Initialise the stack
+void init(Stack* stack){
+	stack->top=-1;
+}
+
+//check if the stack is empty
+int is_empty(Stack* stack){
+	return stack->top == -1;
+}
+
+//check if the stack is full
+int is_full(Stack* stack){
+	return stack->top==MAX_SIZE-1;
 }
