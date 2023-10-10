@@ -3,6 +3,7 @@
 #include "stack.h"
 #include "INFIXPOSTFIX.h"
 #include "BRACKETS.h"
+#include "BINARY.h"
 
 int main(){
 	
@@ -14,6 +15,7 @@ while(num==0){
 	printf("1.Addition\n");
 	printf("2.Postfix Evaluation\n");
 	printf("3.Bracket Matching\n");
+	printf("4.Binary Search\n");
 	printf("0.Exit\n");
 	
 	scanf("%d", &choice);
@@ -42,6 +44,9 @@ while(num==0){
 				else{
 					printf("Brackets are incorrect...\n");
 				}
+				break;
+
+		case 4:fileRead();
 				break;
 
 		case 0:num=1;

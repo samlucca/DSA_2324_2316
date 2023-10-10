@@ -11,14 +11,17 @@ int bracketMatch(char exp[]){
         if(c == '(' || c == '{' || c == '['){
             push(&stack3,c);
         }
-        if(c == ')' || c == '}' || c == ']'){
+        else if(c == ')' || c == '}' || c == ']'){
             if(is_empty(&stack3)){
                 return 0;
             }
-            if(c==')' && peek(&stack3)=='(' || c=='}' && peek(&stack3)=='{' || c==']' && peek(&stack3)=='['){
+            else if(c==')' && peek(&stack3)=='(' || c=='}' && peek(&stack3)=='{' || c==']' && peek(&stack3)=='['){
                 
                 pop(&stack3);
                 
+            }
+            else{
+                return 0;
             }
         }
     }
