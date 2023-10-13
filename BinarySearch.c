@@ -3,13 +3,13 @@
 #include <stdlib.h>
 #include "BINARY.h"
 
-int binarySearch(char *arr[], const char* target, int size) {
+int binarySearch(DATA arr[], const char* target, int size) {
     int low = 0, high = size - 1;
     
     while (low <= high) {
         int mid = (high + low) / 2;
 
-        int cmp = strcmp(target, arr[mid]);
+        int cmp = strcmp(target, arr[mid].word);
 
         if (cmp == 0) {
             return mid;
@@ -38,8 +38,10 @@ int fileRead() {
     const int MAX_LINES = 1000;
     const int MAX_LINE_LENGTH = 100;
 
-    char *firstWords[MAX_LINES];
-    int frequency[MAX_LINES];
+    struct Data data[MAX_LINES];
+
+    //char *firstWords[MAX_LINES];
+    ///int frequency[MAX_LINES];
     char line[MAX_LINE_LENGTH];
     char S[MAX_LINE_LENGTH];
 
@@ -49,23 +51,22 @@ int fileRead() {
         // Use strtok to extract the first word from the line
         char *token = strtok(line, " 	\t\n");
         if (token != NULL) {
-            firstWords[lineNumber] = strdup(token);
+            data[lineNumber].word = strdup(token);
         
         token = strtok(NULL, " \n");
             if (token != NULL) {
-                frequency[lineNumber] = atoi(token);
+                data[lineNumber].freq = atoi(token);
                 lineNumber++;
             }
         }
     }
 
-
     printf("Enter a word to be searched: ");
     scanf("%s", S);
 
-    index = binarySearch(firstWords, S, lineNumber) + 1;
+    index = binarySearch(data, S, lineNumber) + 1;
     if(index!=0)
-        printf("'%s' Found at line %d with frequency = %d\n",S, index,frequency[index-1]);
+        printf("'%s' Found at line %d with frequency = %d\n",S, index,data[index-1].freq);
     else
         printf("Word not found\n");
 
@@ -74,7 +75,7 @@ int fileRead() {
 	int i;
     // Free memory allocated for strdup
     for (i = 0; i < lineNumber; i++) {
-        free(firstWords[i]);
+        free(data[i].word);
     }
 
     return 0;
