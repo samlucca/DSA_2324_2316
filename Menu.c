@@ -4,6 +4,7 @@
 #include "INFIXPOSTFIX.h"
 #include "BRACKETS.h"
 #include "BINARY.h"
+#include "BINARY_TREES.h"
 
 int main(){
 	
@@ -16,6 +17,8 @@ while(num==0){
 	printf("2.Postfix Evaluation\n");
 	printf("3.Bracket Matching\n");
 	printf("4.Binary Search\n");
+	printf("5.Binary trees\n");
+	printf("6.Dijkstra's algorithm\n");
 	printf("0.Exit\n");
 	
 	scanf("%d", &choice);
@@ -49,6 +52,26 @@ while(num==0){
 		case 4:fileRead();
 				break;
 
+		case 5:int x;
+
+				printf("Enter root node\n");
+				scanf("%d",&x);
+
+				BTREE *root = createTree(x);
+
+				printf("\npre-order traversal:\n");
+				preOrder(root);
+
+				printf("\nin-order traversal:\n");
+				inOrder(root);
+
+				printf("\post-order traversal:\n");
+				postOrder(root);
+				break; 
+
+		case 6:
+				break;
+				
 		case 0:num=1;
 				break;
 		
