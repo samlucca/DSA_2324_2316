@@ -38,16 +38,16 @@ void preOrder(BTREE* root) {
         return;
 
     Bstack stack;
-    init(&stack);
+    binit(&stack);
     BTREE* current = root;
 
     while (current != NULL || stack.top != -1) {
         while (current != NULL) {
             printf("%d ", current->data); 
-            push(&stack, current);
+            bpush(&stack, current);
             current = current->left;
         }
-        current = pop(&stack);
+        current = bpop(&stack);
         current = current->right;
     }
 }
@@ -56,16 +56,16 @@ void preOrder(BTREE* root) {
 void inOrder(BTREE* root){
     
     Bstack* bstack;
-    init(bstack);
+    binit(bstack);
 
      BTREE* current = root;
 
-    while (current != NULL || !is_empty(bstack)) {
+    while (current != NULL || !Bis_empty(bstack)) {
         while (current != NULL) {
-            push(bstack, current);
+            bpush(bstack, current);
             current = current->left;
         }
-        current = pop(bstack);
+        current = bpop(bstack);
         printf("%d ", current->data); 
         current = current->right;
     }
@@ -77,53 +77,53 @@ void postOrder(BTREE* root) {
         return;
 
     Bstack stack1, stack2;
-    init(&stack1);
-    init(&stack2);
+    binit(&stack1);
+    binit(&stack2);
 
-    push(&stack1, root);
+    bpush(&stack1, root);
 
     while (stack1.top != -1) {
-        BTREE* current = pop(&stack1);
-        push(&stack2, current);
+        BTREE* current = bpop(&stack1);
+        bpush(&stack2, current);
 
         if (current->left != NULL)
-            push(&stack1, current->left);
+            bpush(&stack1, current->left);
 
         if (current->right != NULL)
-            push(&stack1, current->right);
+            bpush(&stack1, current->right);
     }
 
     while (stack2.top != -1) {
-        BTREE* current = pop(&stack2);
+        BTREE* current = bpop(&stack2);
         printf("%d ", current->data); 
     }
 }
 
 
 //stack operations
-void init(Bstack* bstack){
+void binit(Bstack* bstack){
     bstack->top=-1;
 }
 
-void push(Bstack* bstack, BTREE* node){
-    if(!is_full(bstack)){
+void bpush(Bstack* bstack, BTREE* node){
+    if(!Bis_full(bstack)){
         bstack->top++;
         bstack->nodes[bstack->top]=node;
     }
 }
 
-BTREE* pop(Bstack* bstack){
-    if(!is_empty(bstack)){  
+BTREE* bpop(Bstack* bstack){
+    if(!Bis_empty(bstack)){  
     return bstack->nodes[bstack->top--];
     }
 }
 
-int is_empty(Bstack* bstack){
+int Bis_empty(Bstack* bstack){
     if(bstack->top==-1)
         return 1;
 }
 
-int is_full(Bstack* bstack){
+int Bis_full(Bstack* bstack){
     if(bstack->top==MAX-1)
         return 1;
 }

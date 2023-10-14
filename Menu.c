@@ -5,10 +5,11 @@
 #include "BRACKETS.h"
 #include "BINARY.h"
 #include "BINARY_TREES.h"
+#include "DIJKSTRA.h"
 
 int main(){
 	
-int choice,num=0;
+int choice,num=0,x;
 
 while(num==0){
 
@@ -52,7 +53,7 @@ while(num==0){
 		case 4:fileRead();
 				break;
 
-		case 5:int x;
+		case 5:
 
 				printf("Enter root node\n");
 				scanf("%d",&x);
@@ -65,13 +66,13 @@ while(num==0){
 				printf("\nin-order traversal:\n");
 				inOrder(root);
 
-				printf("\post-order traversal:\n");
+				printf("\npost-order traversal:\n");
 				postOrder(root);
 				break; 
 
-		case 6:
+		case 6:dijkstra();
 				break;
-				
+
 		case 0:num=1;
 				break;
 		

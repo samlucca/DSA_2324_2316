@@ -26,10 +26,10 @@ typedef struct Bstack{
 
 }Bstack;
 
-void init(Bstack* bstack);
-void push(Bstack* bstack, BTREE* node);
-BTREE* pop(Bstack* bstack);
-int is_empty(Bstack* bstack);
-int is_full(Bstack* bstack);
+void binit(Bstack* bstack);
+void bpush(Bstack* bstack, BTREE* node);
+BTREE* bpop(Bstack* bstack);
+int Bis_empty(Bstack* bstack);
+int Bis_full(Bstack* bstack);
 
 #endif
